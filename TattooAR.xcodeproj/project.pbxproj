@@ -1,0 +1,428 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52084DFF201F540900B82637 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52084DFE201F540900B82637 /* AppDelegate.swift */; };
+		52084E04201F540900B82637 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52084E02201F540900B82637 /* Main.storyboard */; };
+		52084E06201F540900B82637 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52084E05201F540900B82637 /* Assets.xcassets */; };
+		52084E09201F540900B82637 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52084E07201F540900B82637 /* LaunchScreen.storyboard */; };
+		520CF3FE203DBDE400F03FAF /* ARSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520CF3FD203DBDE400F03FAF /* ARSceneViewController.swift */; };
+		52745A2C203B8ADB00777A67 /* TattooCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52745A2B203B8ADA00777A67 /* TattooCell.swift */; };
+		52B5BF592020F279005E1923 /* TattooCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B5BF582020F279005E1923 /* TattooCollectionController.swift */; };
+		52EDC75420221B1800C8FDD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52EDC75320221B1800C8FDD2 /* GoogleService-Info.plist */; };
+		A3EE3B248EA350DF22B527E1 /* Pods_TattooAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D37160512AEAF9FC3EEA10F /* Pods_TattooAR.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		52084DFB201F540900B82637 /* TattooAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TattooAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52084DFE201F540900B82637 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		52084E03201F540900B82637 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		52084E05201F540900B82637 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52084E08201F540900B82637 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		52084E0A201F540900B82637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		520CF3FD203DBDE400F03FAF /* ARSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneViewController.swift; sourceTree = "<group>"; };
+		52745A2B203B8ADA00777A67 /* TattooCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TattooCell.swift; sourceTree = "<group>"; };
+		52B5BF582020F279005E1923 /* TattooCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TattooCollectionController.swift; sourceTree = "<group>"; };
+		52EDC75320221B1800C8FDD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7D37160512AEAF9FC3EEA10F /* Pods_TattooAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TattooAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83CD79C61B91001B26F413DF /* Pods-TattooAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TattooAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-TattooAR/Pods-TattooAR.release.xcconfig"; sourceTree = "<group>"; };
+		F1EB523C71BF2B1457A70FCD /* Pods-TattooAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TattooAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TattooAR/Pods-TattooAR.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52084DF8201F540900B82637 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3EE3B248EA350DF22B527E1 /* Pods_TattooAR.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3166011FFE34AEF3FE1A77D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F1EB523C71BF2B1457A70FCD /* Pods-TattooAR.debug.xcconfig */,
+				83CD79C61B91001B26F413DF /* Pods-TattooAR.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		52084DF2201F540900B82637 = {
+			isa = PBXGroup;
+			children = (
+				52084DFD201F540900B82637 /* TattooAR */,
+				52084DFC201F540900B82637 /* Products */,
+				3166011FFE34AEF3FE1A77D8 /* Pods */,
+				74E4389AD18F7F35AD4B30CC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		52084DFC201F540900B82637 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52084DFB201F540900B82637 /* TattooAR.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52084DFD201F540900B82637 /* TattooAR */ = {
+			isa = PBXGroup;
+			children = (
+				52084DFE201F540900B82637 /* AppDelegate.swift */,
+				52084E02201F540900B82637 /* Main.storyboard */,
+				52745A2B203B8ADA00777A67 /* TattooCell.swift */,
+				52B5BF582020F279005E1923 /* TattooCollectionController.swift */,
+				52EDC75320221B1800C8FDD2 /* GoogleService-Info.plist */,
+				52084E05201F540900B82637 /* Assets.xcassets */,
+				52084E07201F540900B82637 /* LaunchScreen.storyboard */,
+				52084E0A201F540900B82637 /* Info.plist */,
+				520CF3FD203DBDE400F03FAF /* ARSceneViewController.swift */,
+			);
+			path = TattooAR;
+			sourceTree = "<group>";
+		};
+		74E4389AD18F7F35AD4B30CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D37160512AEAF9FC3EEA10F /* Pods_TattooAR.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52084DFA201F540900B82637 /* TattooAR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52084E0D201F540900B82637 /* Build configuration list for PBXNativeTarget "TattooAR" */;
+			buildPhases = (
+				8FA33A4E364B2C92C035416B /* [CP] Check Pods Manifest.lock */,
+				52084DF7201F540900B82637 /* Sources */,
+				52084DF8201F540900B82637 /* Frameworks */,
+				52084DF9201F540900B82637 /* Resources */,
+				FE412604F474A0F44B138BF8 /* [CP] Embed Pods Frameworks */,
+				A92BFDA31E41F9AD3C6095D7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TattooAR;
+			productName = TattooAR;
+			productReference = 52084DFB201F540900B82637 /* TattooAR.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52084DF3201F540900B82637 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = SwiftFMI;
+				TargetAttributes = {
+					52084DFA201F540900B82637 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 52084DF6201F540900B82637 /* Build configuration list for PBXProject "TattooAR" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52084DF2201F540900B82637;
+			productRefGroup = 52084DFC201F540900B82637 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52084DFA201F540900B82637 /* TattooAR */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52084DF9201F540900B82637 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52084E09201F540900B82637 /* LaunchScreen.storyboard in Resources */,
+				52EDC75420221B1800C8FDD2 /* GoogleService-Info.plist in Resources */,
+				52084E06201F540900B82637 /* Assets.xcassets in Resources */,
+				52084E04201F540900B82637 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8FA33A4E364B2C92C035416B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TattooAR-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A92BFDA31E41F9AD3C6095D7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TattooAR/Pods-TattooAR-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE412604F474A0F44B138BF8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TattooAR/Pods-TattooAR-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TattooAR/Pods-TattooAR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52084DF7201F540900B82637 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52084DFF201F540900B82637 /* AppDelegate.swift in Sources */,
+				52B5BF592020F279005E1923 /* TattooCollectionController.swift in Sources */,
+				520CF3FE203DBDE400F03FAF /* ARSceneViewController.swift in Sources */,
+				52745A2C203B8ADB00777A67 /* TattooCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		52084E02201F540900B82637 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52084E03201F540900B82637 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		52084E07201F540900B82637 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52084E08201F540900B82637 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52084E0B201F540900B82637 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		52084E0C201F540900B82637 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52084E0E201F540900B82637 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1EB523C71BF2B1457A70FCD /* Pods-TattooAR.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 24A84B9347;
+				INFOPLIST_FILE = TattooAR/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tattooar.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52084E0F201F540900B82637 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83CD79C61B91001B26F413DF /* Pods-TattooAR.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 24A84B9347;
+				INFOPLIST_FILE = TattooAR/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tattooar.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52084DF6201F540900B82637 /* Build configuration list for PBXProject "TattooAR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52084E0B201F540900B82637 /* Debug */,
+				52084E0C201F540900B82637 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52084E0D201F540900B82637 /* Build configuration list for PBXNativeTarget "TattooAR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52084E0E201F540900B82637 /* Debug */,
+				52084E0F201F540900B82637 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52084DF3201F540900B82637 /* Project object */;
+}
