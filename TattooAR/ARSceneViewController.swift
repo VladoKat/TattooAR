@@ -16,6 +16,7 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     //@IBOutlet weak var sceneView: ARSCNView!
     //@IBOutlet weak var sessionInfoView: UIView!
     //@IBOutlet weak var sessionInfoLabel: UILabel!
+    //@IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var sceneView: ARSCNView!
     
     var selectedImage: UIImage?
@@ -52,7 +53,7 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         UIApplication.shared.isIdleTimerDisabled = true
         
         // Show debug UI to view performance metrics (e.g. frames per second).
-        sceneView.showsStatistics = true
+        //sceneView.showsStatistics = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,7 +86,7 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         //material.diffuse.contents = UIImage(named: "brick2.png")
         //material.diffuse.contents = UIColor.white
         // planeNode.opacity = 0.25
-        planeNode.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+        planeNode.geometry?.firstMaterial?.diffuse.contents = selectedImage
         //planeNode.
         
         // Add the plane visualization to the ARKit-managed node so that it tracks
@@ -97,16 +98,16 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         // Update content only for plane anchors and nodes matching the setup created in `renderer(_:didAdd:for:)`.
         guard let planeAnchor = anchor as?  ARPlaneAnchor,
-            let planeNode = node.childNodes.first
-            //let plane = planeNode.geometry as? SCNPlane
+            let planeNode = node.childNodes.first,
+            let plane = planeNode.geometry as? SCNPlane
             else { return }
         
         // Plane estimation may shift the center of a plane relative to its anchor's transform.
         planeNode.simdPosition = float3(planeAnchor.center.x, 0, planeAnchor.center.z)
         
         // Plane estimation may also extend planes, or remove one plane to merge its extent into another.
-//                planeNode.width = CGFloat(planeAnchor.extent.x)
-//                planeNode.height = CGFloat(planeAnchor.extent.z)
+                plane.width = CGFloat(planeAnchor.extent.x)
+                plane.height = CGFloat(planeAnchor.extent.z)
     }
     
     // MARK: - ARSessionDelegate

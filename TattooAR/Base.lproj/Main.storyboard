@@ -48,7 +48,7 @@
                                 <connections>
                                     <outlet property="imageView" destination="qoE-2i-YYd" id="2hM-fO-GnM"/>
                                     <outlet property="label" destination="Q2b-b3-iZ2" id="fpR-0l-kqD"/>
-                                    <segue destination="7l6-nE-qV6" kind="show" identifier="ARSceneViewControllerID" id="fIW-MM-DYh"/>
+                                    <segue destination="7l6-nE-qV6" kind="show" identifier="ARSceneViewControllerID" id="42P-zd-o49"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -76,6 +76,9 @@
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cxf-xF-dkB">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7l6-nE-qV6" id="P8W-ca-ViS"/>
+                                </connections>
                             </arscnView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,10 +91,11 @@
                         <viewLayoutGuide key="safeArea" id="qwO-pN-HJI"/>
                     </view>
                     <connections>
-                        <outlet property="sceneView" destination="Cxf-xF-dkB" id="xHh-OD-nJt"/>
+                        <outlet property="sceneView" destination="Cxf-xF-dkB" id="keh-He-XpQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHK-Cu-hmv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="q2T-x4-Hid" customClass="SCNScene"/>
             </objects>
             <point key="canvasLocation" x="1226.4000000000001" y="-271.21439280359823"/>
         </scene>
