@@ -80,18 +80,49 @@
                                     <outlet property="delegate" destination="7l6-nE-qV6" id="P8W-ca-ViS"/>
                                 </connections>
                             </arscnView>
+                            <visualEffectView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7h-Rq-ske">
+                                <rect key="frame" x="20" y="606.5" width="20" height="40.5"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="csp-wx-lii">
+                                    <rect key="frame" x="0.0" y="0.0" width="20" height="40.5"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJj-gd-O7u">
+                                            <rect key="frame" x="10" y="10" width="0.0" height="20.5"/>
+                                            <accessibility key="accessibilityConfiguration" label="&quot;&quot;"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="IvU-2O-w5E"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="220" id="Skr-0l-Awz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="mJj-gd-O7u" secondAttribute="trailing" constant="10" id="F3D-00-bIL"/>
+                                        <constraint firstItem="mJj-gd-O7u" firstAttribute="top" secondItem="csp-wx-lii" secondAttribute="top" constant="10" id="VGY-q0-Atj"/>
+                                        <constraint firstAttribute="bottom" secondItem="mJj-gd-O7u" secondAttribute="bottom" constant="10" id="XJH-lR-uYw"/>
+                                        <constraint firstItem="mJj-gd-O7u" firstAttribute="leading" secondItem="csp-wx-lii" secondAttribute="leading" constant="10" id="r4T-mi-s9J"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Cxf-xF-dkB" firstAttribute="bottom" secondItem="qwO-pN-HJI" secondAttribute="bottom" id="2gh-XA-j0N"/>
-                            <constraint firstItem="Cxf-xF-dkB" firstAttribute="leading" secondItem="qwO-pN-HJI" secondAttribute="leading" id="MXv-rs-eeb"/>
-                            <constraint firstItem="Cxf-xF-dkB" firstAttribute="trailing" secondItem="qwO-pN-HJI" secondAttribute="trailing" id="gTk-Hq-Ta1"/>
-                            <constraint firstItem="Cxf-xF-dkB" firstAttribute="top" secondItem="XaQ-tA-hnx" secondAttribute="top" id="t6V-4b-2IE"/>
+                            <constraint firstItem="qwO-pN-HJI" firstAttribute="bottom" secondItem="J7h-Rq-ske" secondAttribute="bottom" constant="20" id="9JQ-Zn-Jkl"/>
+                            <constraint firstItem="Cxf-xF-dkB" firstAttribute="trailing" secondItem="qwO-pN-HJI" secondAttribute="trailing" id="PE3-p3-SlX"/>
+                            <constraint firstItem="Cxf-xF-dkB" firstAttribute="bottom" secondItem="qwO-pN-HJI" secondAttribute="bottom" id="iEx-MN-f9A"/>
+                            <constraint firstItem="Cxf-xF-dkB" firstAttribute="top" secondItem="XaQ-tA-hnx" secondAttribute="top" id="jOk-do-s0J"/>
+                            <constraint firstItem="J7h-Rq-ske" firstAttribute="leading" secondItem="qwO-pN-HJI" secondAttribute="leading" constant="20" id="jpV-Gs-MV6"/>
+                            <constraint firstItem="Cxf-xF-dkB" firstAttribute="leading" secondItem="qwO-pN-HJI" secondAttribute="leading" id="ksK-GX-nyD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qwO-pN-HJI"/>
                     </view>
                     <connections>
+                        <outlet property="label" destination="mJj-gd-O7u" id="EhC-du-1fH"/>
                         <outlet property="sceneView" destination="Cxf-xF-dkB" id="keh-He-XpQ"/>
+                        <outlet property="sessionView" destination="J7h-Rq-ske" id="QEe-ro-CU7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHK-Cu-hmv" userLabel="First Responder" sceneMemberID="firstResponder"/>

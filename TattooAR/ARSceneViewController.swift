@@ -17,8 +17,10 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     //@IBOutlet weak var sessionInfoView: UIView!
     //@IBOutlet weak var sessionInfoLabel: UILabel!
     //@IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var label: UILabel!
     @IBOutlet weak var sceneView: ARSCNView!
     
+    @IBOutlet weak var sessionView: UIVisualEffectView!
     var selectedImage: UIImage?
     
     // MARK: - View Life Cycle
@@ -130,18 +132,18 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     
     func sessionWasInterrupted(_ session: ARSession) {
         // Inform the user that the session has been interrupted, for example, by presenting an overlay.
-       // sessionInfoLabel.text = "Session was interrupted"
+        label.text = "Session was interrupted"
     }
     
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required.
-        //sessionInfoLabel.text = "Session interruption ended"
+        label.text = "Session interruption ended"
         resetTracking()
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user.
-        //sessionInfoLabel.text = "Session failed: \(error.localizedDescription)"
+        label.text = "Session failed: \(error.localizedDescription)"
         resetTracking()
     }
     
@@ -175,11 +177,12 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
             
         }
         
-        //sessionInfoLabel.text = message
+        label.text = message
+        sessionView.isHidden = message.isEmpty
         //sessionInfoView.isHidden = message.isEmpty
-        if !message.isEmpty {
-            print(message)
-        }
+//        if !message.isEmpty {
+//            
+//        }
     }
     
     private func resetTracking() {
