@@ -76,8 +76,10 @@
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cxf-xF-dkB">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="7l6-nE-qV6" id="P8W-ca-ViS"/>
+                                    <outletCollection property="gestureRecognizers" destination="fnl-rv-ORW" appends="YES" id="mTX-mS-jvL"/>
                                 </connections>
                             </arscnView>
                             <visualEffectView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7h-Rq-ske">
@@ -127,6 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHK-Cu-hmv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="q2T-x4-Hid" customClass="SCNScene"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="fnl-rv-ORW"/>
             </objects>
             <point key="canvasLocation" x="1226.4000000000001" y="-271.21439280359823"/>
         </scene>

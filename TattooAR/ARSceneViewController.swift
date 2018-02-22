@@ -20,15 +20,18 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var sceneView: ARSCNView!
     
+   // @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var sessionView: UIVisualEffectView!
-    var selectedImage: UIImage?
     
+    var currentAngle: Float = 0.0
+    var selectedImage: UIImage?
+    var planeNode: SCNNode?
+    var latestTranslatePos: CGPoint?
     // MARK: - View Life Cycle
     
     /// - Tag: StartARSession
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         guard ARWorldTrackingConfiguration.isSupported else {
             fatalError("""
                 ARKit is not available on this device. For apps that require ARKit
@@ -49,13 +52,54 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         
         // Set a delegate to track the number of plane anchors for providing UI feedback.
         sceneView.session.delegate = self
-        
+        sceneView.delegate = self
+       // sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
         // Prevent the screen from being dimmed after a while as users will likely
         // have long periods of interaction without touching the screen or buttons.
         UIApplication.shared.isIdleTimerDisabled = true
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ARSceneViewController.panRecognizer(sender:)))
+        let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(ARSceneViewController.pinchRecognizer(sender:)))
+        sceneView.addGestureRecognizer(pinchRecognizer)
+        sceneView.addGestureRecognizer(panRecognizer)
         
+        //adding a pinch recognizer (This works)
+//        let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: Selector(("pinchGesture:")))
+//        sceneView.addGestureRecognizer(pinchRecognizer)
         // Show debug UI to view performance metrics (e.g. frames per second).
         //sceneView.showsStatistics = true
+    }
+    
+    @objc func pinchRecognizer(sender: UIPinchGestureRecognizer){
+        let mult = sender.scale;
+        let plane = planeNode?.geometry as! SCNPlane
+        if((mult > 1 && plane.width < 1) || (mult < 1 && plane.width > 0.05 )){
+            plane.width *= mult;
+            plane.height *= mult;
+        }
+        sender.scale = 1;
+    }
+    @objc func panRecognizer(sender: UIPanGestureRecognizer) {
+        
+        let position = sender.location(in: sender.view!)
+        let state = sender.state
+        
+        if (state == .failed || state == .cancelled) {
+            return
+        }
+        
+        if (state == .began) {
+                latestTranslatePos = position
+        } else {
+            
+            // Translate virtual object
+            let deltaX = Float(position.x - latestTranslatePos!.x)/700
+            let deltaY = Float(position.y - latestTranslatePos!.y)/700
+            
+            planeNode!.localTranslate(by: SCNVector3Make(deltaX, -deltaY, 0.0))
+            
+            latestTranslatePos = position
+            
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -74,43 +118,44 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         
         // Create a SceneKit plane to visualize the plane anchor using its position and extent.
         //let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
-        let planeNode = SCNNode()
-        planeNode.geometry = SCNPlane(width: 0.1, height: 0.1)
+        planeNode = SCNNode()
+        planeNode?.geometry = SCNPlane(width: 0.1, height: 0.1)
         // planeNode.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.0)
-        planeNode.simdPosition = float3(planeAnchor.center.x, 0, planeAnchor.center.z)
+        planeNode?.simdPosition = float3(planeAnchor.center.x, 0, planeAnchor.center.z)
         
         // `SCNPlane` is vertically oriented in its local coordinate space, so
         // rotate the plane to match the horizontal orientation of `ARPlaneAnchor`.
-        planeNode.eulerAngles.x = -.pi / 2
+        planeNode?.eulerAngles.x = -.pi / 2
         
         // Make the plane visualization semitransparent to clearly show real-world placement.
         //let material = SCNMaterial()
         //material.diffuse.contents = UIImage(named: "brick2.png")
         //material.diffuse.contents = UIColor.white
         // planeNode.opacity = 0.25
-        planeNode.geometry?.firstMaterial?.diffuse.contents = selectedImage
+        planeNode?.geometry?.firstMaterial?.diffuse.contents = selectedImage
         //planeNode.
+        currentAngle = (planeNode?.eulerAngles.z)!
         
         // Add the plane visualization to the ARKit-managed node so that it tracks
         // changes in the plane anchor as plane estimation continues.
-        node.addChildNode(planeNode)
+        node.addChildNode(planeNode!)
     }
     
     /// - Tag: UpdateARContent
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        // Update content only for plane anchors and nodes matching the setup created in `renderer(_:didAdd:for:)`.
-        guard let planeAnchor = anchor as?  ARPlaneAnchor,
-            let planeNode = node.childNodes.first,
-            let plane = planeNode.geometry as? SCNPlane
-            else { return }
-        
-        // Plane estimation may shift the center of a plane relative to its anchor's transform.
-        planeNode.simdPosition = float3(planeAnchor.center.x, 0, planeAnchor.center.z)
-        
-        // Plane estimation may also extend planes, or remove one plane to merge its extent into another.
-                plane.width = CGFloat(planeAnchor.extent.x)
-                plane.height = CGFloat(planeAnchor.extent.z)
-    }
+//    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+//        // Update content only for plane anchors and nodes matching the setup created in `renderer(_:didAdd:for:)`.
+//        guard let planeAnchor = anchor as?  ARPlaneAnchor,
+//            let planeNode = node.childNodes.first
+//            //let plane = planeNode.geometry as? SCNPlane
+//            else { return }
+//
+//        // Plane estimation may shift the center of a plane relative to its anchor's transform.
+//        //planeNode.simdPosition = float3(planeAnchor.center.x, 0, planeAnchor.center.z)
+//
+//        // Plane estimation may also extend planes, or remove one plane to merge its extent into another.
+////                plane.width = CGFloat(planeAnchor.extent.x)
+////                plane.height = CGFloat(planeAnchor.extent.z)
+//    }
     
     // MARK: - ARSessionDelegate
     
