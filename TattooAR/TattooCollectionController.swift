@@ -10,7 +10,7 @@ class TattooCollectionViewController: UICollectionViewController {
     var tempImageView: UIImageView?
     
     override func viewDidLoad() {
-       
+       myCollView.backgroundColor = UIColor.gray
     }
     // MARK: - UICollectionViewDataSource protocol
     
@@ -31,11 +31,13 @@ class TattooCollectionViewController: UICollectionViewController {
 //        }
         
         //cell.label.text = self.items[indexPath.item]
-        cell.backgroundColor = UIColor.cyan
+        cell.backgroundColor = UIColor.brown
+        
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
 //        cell.label.text = self.items[indexPath.item]
 //        cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
 //
+        cell.layer.cornerRadius = 15
         cell.imageView.contentMode = .scaleAspectFit
         cell.imageView.image = self.images[indexPath.item]
         return cell
