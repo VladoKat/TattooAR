@@ -109,15 +109,28 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="En1-b5-bYZ">
+                                <rect key="frame" x="20" y="40" width="30" height="30"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnToCollView:" destination="7l6-nE-qV6" eventType="touchUpInside" id="3PL-D7-zWn"/>
+                                    <segue destination="EVA-ZT-Axf" kind="show" identifier="backToCollectionView" id="4Nu-WS-Hkq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qwO-pN-HJI" firstAttribute="bottom" secondItem="J7h-Rq-ske" secondAttribute="bottom" constant="20" id="9JQ-Zn-Jkl"/>
                             <constraint firstItem="Cxf-xF-dkB" firstAttribute="trailing" secondItem="qwO-pN-HJI" secondAttribute="trailing" id="PE3-p3-SlX"/>
+                            <constraint firstItem="En1-b5-bYZ" firstAttribute="leading" secondItem="qwO-pN-HJI" secondAttribute="leading" constant="20" id="V7h-hl-3pf"/>
                             <constraint firstItem="Cxf-xF-dkB" firstAttribute="bottom" secondItem="qwO-pN-HJI" secondAttribute="bottom" id="iEx-MN-f9A"/>
                             <constraint firstItem="Cxf-xF-dkB" firstAttribute="top" secondItem="XaQ-tA-hnx" secondAttribute="top" id="jOk-do-s0J"/>
                             <constraint firstItem="J7h-Rq-ske" firstAttribute="leading" secondItem="qwO-pN-HJI" secondAttribute="leading" constant="20" id="jpV-Gs-MV6"/>
                             <constraint firstItem="Cxf-xF-dkB" firstAttribute="leading" secondItem="qwO-pN-HJI" secondAttribute="leading" id="ksK-GX-nyD"/>
+                            <constraint firstItem="En1-b5-bYZ" firstAttribute="top" secondItem="qwO-pN-HJI" secondAttribute="top" constant="20" id="q2J-5z-wiS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qwO-pN-HJI"/>
                     </view>

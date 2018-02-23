@@ -28,6 +28,7 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     var planeNode: SCNNode?
     var latestTranslatePos: CGPoint?
     var lastRotation: CGFloat = 0
+    var naturalOrientationVector: SCNVector4?
     // MARK: - View Life Cycle
     
     /// - Tag: StartARSession
@@ -124,8 +125,10 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
             // Translate virtual object
             let deltaX = Float(position.x - latestTranslatePos!.x)/700
             let deltaY = Float(position.y - latestTranslatePos!.y)/700
-            
-            planeNode!.localTranslate(by: SCNVector3Make(deltaX, -deltaY, 0.0))
+            let currentOrientation = planeNode?.orientation
+            planeNode?.orientation = naturalOrientationVector!
+            planeNode!.localTranslate(by: SCNVector3Make(deltaX, 0.0, deltaY))
+            planeNode?.orientation = currentOrientation!
             //after rotation coordinate system changes and local transalte doesn't work as predicted
             latestTranslatePos = position
             
@@ -152,7 +155,6 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         planeNode?.geometry = SCNPlane(width: 0.1, height: 0.1)
         // planeNode.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.0)
         planeNode?.simdPosition = float3(planeAnchor.center.x, 0, planeAnchor.center.z)
-        
         // `SCNPlane` is vertically oriented in its local coordinate space, so
         // rotate the plane to match the horizontal orientation of `ARPlaneAnchor`.
         planeNode?.eulerAngles.x = -.pi / 2
@@ -163,6 +165,7 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         //material.diffuse.contents = UIColor.white
         // planeNode.opacity = 0.25
         planeNode?.geometry?.firstMaterial?.diffuse.contents = selectedImage
+        naturalOrientationVector = SCNVector4Make((planeNode?.position.x)!, (planeNode?.position.y)!, (planeNode?.position.z)!, 0)
         //planeNode.
         currentAngle = (planeNode?.eulerAngles.z)!
         
@@ -189,6 +192,9 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     
     // MARK: - ARSessionDelegate
     
+    @IBAction func returnToCollView(_ sender: Any) {
+        performSegue(withIdentifier: "backToCollectionView", sender: sender)
+    }
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
         guard let frame = session.currentFrame else { return }
         updateSessionInfoLabel(for: frame, trackingState: frame.camera.trackingState)
