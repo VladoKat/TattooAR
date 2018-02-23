@@ -29,6 +29,7 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     var latestTranslatePos: CGPoint?
     var lastRotation: CGFloat = 0
     var naturalOrientationVector: SCNVector4?
+    var images = [UIImage]()
     // MARK: - View Life Cycle
     
     /// - Tag: StartARSession
@@ -191,7 +192,16 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
 //    }
     
     // MARK: - ARSessionDelegate
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //assert(sender as? UICollectionViewCell != nil, "sender is not a collection view")
+        
+        if segue.identifier == "backToCollectionView" {
+            let detailVC: TattooCollectionViewController = segue.destination as! TattooCollectionViewController
+            detailVC.images = images
+            //detailVC.selectedLabel = cellLabels[indexPath.row]
+        }
+        
+    }
     @IBAction func returnToCollView(_ sender: Any) {
         performSegue(withIdentifier: "backToCollectionView", sender: sender)
     }

@@ -57,6 +57,7 @@ class TattooCollectionViewController: UICollectionViewController {
             if segue.identifier == "ARSceneViewControllerID" {
                 let detailVC: ARSceneViewController = segue.destination as! ARSceneViewController
                 detailVC.selectedImage = images[indexPath.row]
+                detailVC.images = images
                 //detailVC.selectedLabel = cellLabels[indexPath.row]
             }
         } else {
