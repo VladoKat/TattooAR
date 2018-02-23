@@ -12,12 +12,15 @@ import Firebase
 import FirebaseDatabase
 import Alamofire
 class InitialViewController : UIViewController{
+    @IBOutlet var parentView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     var images = [UIImage]()
     //var tempImageView: UIImageView?
     var ref: DatabaseReference!
     var childrenCount: UInt = 0
     override func viewDidLoad() {
-        
+        titleLabel.center = CGPoint(x: parentView.frame.width / 2, y: parentView.frame.height / 2)
+        //titleLabel.size
         ref  = Database.database().reference()
         print("ti ebavash li se s mene ________________")
         print( ref.child("photos"))
