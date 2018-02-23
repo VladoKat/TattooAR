@@ -27,6 +27,7 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     var selectedImage: UIImage?
     var planeNode: SCNNode?
     var latestTranslatePos: CGPoint?
+    var lastRotation: CGFloat = 0
     // MARK: - View Life Cycle
     
     /// - Tag: StartARSession
@@ -59,9 +60,10 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         UIApplication.shared.isIdleTimerDisabled = true
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ARSceneViewController.panRecognizer(sender:)))
         let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(ARSceneViewController.pinchRecognizer(sender:)))
+        let rotateRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(ARSceneViewController.rotateAction(sender:)))
         sceneView.addGestureRecognizer(pinchRecognizer)
         sceneView.addGestureRecognizer(panRecognizer)
-        
+        sceneView.addGestureRecognizer(rotateRecognizer)
         //adding a pinch recognizer (This works)
 //        let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: Selector(("pinchGesture:")))
 //        sceneView.addGestureRecognizer(pinchRecognizer)
@@ -69,6 +71,34 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         //sceneView.showsStatistics = true
     }
     
+    @objc func rotateAction(sender:UIRotationGestureRecognizer){
+        var originalRotation = CGFloat()
+        if sender.state == .began{
+            sender.rotation = lastRotation
+            originalRotation = sender.rotation
+        }
+        if sender.state == .changed{
+            let translation = sender.rotation + originalRotation
+            let pan_x = Float(translation)
+//            let pan_y = Float(-translation)
+//            let anglePan = sqrt(pow(pan_x,2)+pow(pan_y,2))*(Float)(Double.pi)/180.0
+//            var rotationVector = SCNVector4()
+//
+//            rotationVector.x = -pan_y
+//            rotationVector.y = 0
+//            rotationVector.z = pan_x
+//            rotationVector.w = anglePan
+            
+            //planeNode?.rotation = rotationVector
+            //planeNode?.eulerAngles.x = -.pi / 2
+            planeNode?.eulerAngles.y = -pan_x
+            //planeNode?.eulerAngles.y =
+            //planeNode?.rotation = GLKMatrix4MakeZRotation(Float(newRotation))
+        }
+        if sender.state == .ended{
+            lastRotation = sender.rotation
+        }
+    }
     @objc func pinchRecognizer(sender: UIPinchGestureRecognizer){
         let mult = sender.scale;
         let plane = planeNode?.geometry as! SCNPlane
@@ -96,7 +126,7 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
             let deltaY = Float(position.y - latestTranslatePos!.y)/700
             
             planeNode!.localTranslate(by: SCNVector3Make(deltaX, -deltaY, 0.0))
-            
+            //after rotation coordinate system changes and local transalte doesn't work as predicted
             latestTranslatePos = position
             
         }
