@@ -1,9 +1,7 @@
 import UIKit
-import Firebase
-import FirebaseDatabase
-import Alamofire
+
 class TattooCollectionViewController: UICollectionViewController {
-    var ref: DatabaseReference!
+    
     let reuseIdentifier = "TattooCell" // also enter this string as the cell identifier in the storyboard
     
     @IBOutlet var myCollView: UICollectionView!
@@ -12,34 +10,7 @@ class TattooCollectionViewController: UICollectionViewController {
     var tempImageView: UIImageView?
     
     override func viewDidLoad() {
-        ref  = Database.database().reference()
-        print("ti ebavash li se s mene ________________")
-        print( ref.child("photos"))
-        let childRef = Database.database().reference(withPath: "photos")
-        //print(childRef.value(forKey: "0") ?? "smth");
-        childRef.observe(.value, with: { snapshot in
-            
-            for item in snapshot.children {
-                // 4
-                let theItem = item as! DataSnapshot
-                let str = String(describing: theItem.value as! String)
-                Alamofire.request(URL(string: str)!).responseData { (response) in
-                    if response.error == nil {
-                       print(response.result)
-                         // Show the downloaded image:
-                         if let data = response.data {
-                            print("adding images")
-                            self.images.append(UIImage(data: data)!)
-                            //self.images = newItems
-                            self.myCollView.reloadData()
-                            print("really though")
-                        }
-                    }
-                    print("mmhm")
-                }
-    ///////
-            }
-        })
+       
     }
     // MARK: - UICollectionViewDataSource protocol
     

@@ -12,6 +12,7 @@
 		52084E06201F540900B82637 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52084E05201F540900B82637 /* Assets.xcassets */; };
 		52084E09201F540900B82637 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52084E07201F540900B82637 /* LaunchScreen.storyboard */; };
 		520CF3FE203DBDE400F03FAF /* ARSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520CF3FD203DBDE400F03FAF /* ARSceneViewController.swift */; };
+		520D041B204043E200EF8096 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D041A204043E200EF8096 /* InitialViewController.swift */; };
 		52745A2C203B8ADB00777A67 /* TattooCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52745A2B203B8ADA00777A67 /* TattooCell.swift */; };
 		52B5BF592020F279005E1923 /* TattooCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B5BF582020F279005E1923 /* TattooCollectionController.swift */; };
 		52EDC75420221B1800C8FDD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52EDC75320221B1800C8FDD2 /* GoogleService-Info.plist */; };
@@ -26,6 +27,7 @@
 		52084E08201F540900B82637 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52084E0A201F540900B82637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		520CF3FD203DBDE400F03FAF /* ARSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneViewController.swift; sourceTree = "<group>"; };
+		520D041A204043E200EF8096 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		52745A2B203B8ADA00777A67 /* TattooCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TattooCell.swift; sourceTree = "<group>"; };
 		52B5BF582020F279005E1923 /* TattooCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TattooCollectionController.swift; sourceTree = "<group>"; };
 		52EDC75320221B1800C8FDD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				52084E07201F540900B82637 /* LaunchScreen.storyboard */,
 				52084E0A201F540900B82637 /* Info.plist */,
 				520CF3FD203DBDE400F03FAF /* ARSceneViewController.swift */,
+				520D041A204043E200EF8096 /* InitialViewController.swift */,
 			);
 			path = TattooAR;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				520D041B204043E200EF8096 /* InitialViewController.swift in Sources */,
 				52084DFF201F540900B82637 /* AppDelegate.swift in Sources */,
 				52B5BF592020F279005E1923 /* TattooCollectionController.swift in Sources */,
 				520CF3FE203DBDE400F03FAF /* ARSceneViewController.swift in Sources */,

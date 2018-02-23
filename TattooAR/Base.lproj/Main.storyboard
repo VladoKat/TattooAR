@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EVA-ZT-Axf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P8r-gW-Z9Z">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -64,7 +64,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="koZ-am-Txg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="452" y="-271.21439280359823"/>
+            <point key="canvasLocation" x="916" y="-271"/>
         </scene>
         <!--Scene View Controller-->
         <scene sceneID="c5c-sq-zHO">
@@ -79,7 +79,6 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="7l6-nE-qV6" id="P8W-ca-ViS"/>
-                                    <outletCollection property="gestureRecognizers" destination="fnl-rv-ORW" appends="YES" id="mTX-mS-jvL"/>
                                 </connections>
                             </arscnView>
                             <visualEffectView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7h-Rq-ske">
@@ -110,7 +109,7 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="En1-b5-bYZ">
-                                <rect key="frame" x="20" y="40" width="30" height="30"/>
+                                <rect key="frame" x="10" y="30" width="30" height="30"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -125,12 +124,12 @@
                         <constraints>
                             <constraint firstItem="qwO-pN-HJI" firstAttribute="bottom" secondItem="J7h-Rq-ske" secondAttribute="bottom" constant="20" id="9JQ-Zn-Jkl"/>
                             <constraint firstItem="Cxf-xF-dkB" firstAttribute="trailing" secondItem="qwO-pN-HJI" secondAttribute="trailing" id="PE3-p3-SlX"/>
-                            <constraint firstItem="En1-b5-bYZ" firstAttribute="leading" secondItem="qwO-pN-HJI" secondAttribute="leading" constant="20" id="V7h-hl-3pf"/>
+                            <constraint firstItem="En1-b5-bYZ" firstAttribute="leading" secondItem="qwO-pN-HJI" secondAttribute="leading" constant="10" id="V7h-hl-3pf"/>
                             <constraint firstItem="Cxf-xF-dkB" firstAttribute="bottom" secondItem="qwO-pN-HJI" secondAttribute="bottom" id="iEx-MN-f9A"/>
                             <constraint firstItem="Cxf-xF-dkB" firstAttribute="top" secondItem="XaQ-tA-hnx" secondAttribute="top" id="jOk-do-s0J"/>
                             <constraint firstItem="J7h-Rq-ske" firstAttribute="leading" secondItem="qwO-pN-HJI" secondAttribute="leading" constant="20" id="jpV-Gs-MV6"/>
                             <constraint firstItem="Cxf-xF-dkB" firstAttribute="leading" secondItem="qwO-pN-HJI" secondAttribute="leading" id="ksK-GX-nyD"/>
-                            <constraint firstItem="En1-b5-bYZ" firstAttribute="top" secondItem="qwO-pN-HJI" secondAttribute="top" constant="20" id="q2J-5z-wiS"/>
+                            <constraint firstItem="En1-b5-bYZ" firstAttribute="top" secondItem="qwO-pN-HJI" secondAttribute="top" constant="10" id="q2J-5z-wiS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qwO-pN-HJI"/>
                     </view>
@@ -142,9 +141,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHK-Cu-hmv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="q2T-x4-Hid" customClass="SCNScene"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="fnl-rv-ORW"/>
             </objects>
-            <point key="canvasLocation" x="1226.4000000000001" y="-271.21439280359823"/>
+            <point key="canvasLocation" x="1575" y="-271"/>
+        </scene>
+        <!--Initial View Controller-->
+        <scene sceneID="qlS-5G-fyd">
+            <objects>
+                <viewController id="P8r-gW-Z9Z" customClass="InitialViewController" customModule="TattooAR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U2r-3N-mvS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="P76-LO-vn9"/>
+                    </view>
+                    <connections>
+                        <segue destination="EVA-ZT-Axf" kind="show" identifier="toCollectionView" id="ilD-B4-b1U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6EX-7L-ORQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="223" y="-271"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ilD-B4-b1U"/>
+    </inferredMetricsTieBreakers>
 </document>
