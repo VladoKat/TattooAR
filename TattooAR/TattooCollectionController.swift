@@ -5,9 +5,7 @@ class TattooCollectionViewController: UICollectionViewController {
     let reuseIdentifier = "TattooCell" // also enter this string as the cell identifier in the storyboard
     
     @IBOutlet var myCollView: UICollectionView!
-    var items = [String]()
     var images = [UIImage]()
-    var tempImageView: UIImageView?
     
     override func viewDidLoad() {
        myCollView.backgroundColor = UIColor.gray
@@ -24,19 +22,7 @@ class TattooCollectionViewController: UICollectionViewController {
         
         // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! TattooCell
-//        if let filePath = Bundle.main.path(forResource: self.items[indexPath.item], ofType: "jpg"), let image = UIImage(contentsOfFile: filePath) {
-//            cell.imageView.contentMode = .scaleAspectFit
-//            cell.imageView.image = image
-//            cell.backgroundColor = UIColor.cyan
-//        }
-        
-        //cell.label.text = self.items[indexPath.item]
         cell.backgroundColor = UIColor.brown
-        
-        // Use the outlet in our custom class to get a reference to the UILabel in the cell
-//        cell.label.text = self.items[indexPath.item]
-//        cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
-//
         cell.layer.cornerRadius = 15
         cell.imageView.contentMode = .scaleAspectFit
         cell.imageView.image = self.images[indexPath.item]
@@ -60,7 +46,6 @@ class TattooCollectionViewController: UICollectionViewController {
                 let detailVC: ARSceneViewController = segue.destination as! ARSceneViewController
                 detailVC.selectedImage = images[indexPath.row]
                 detailVC.images = images
-                //detailVC.selectedLabel = cellLabels[indexPath.row]
             }
         } else {
             // Error sender is not a cell or cell is not in collectionView.

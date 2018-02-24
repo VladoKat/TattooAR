@@ -13,14 +13,8 @@ import ARKit
 class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     // MARK: - IBOutlets
     
-    //@IBOutlet weak var sceneView: ARSCNView!
-    //@IBOutlet weak var sessionInfoView: UIView!
-    //@IBOutlet weak var sessionInfoLabel: UILabel!
-    //@IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var sceneView: ARSCNView!
-    
-   // @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var sessionView: UIVisualEffectView!
     
     var currentAngle: Float = 0.0
@@ -56,7 +50,6 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         // Set a delegate to track the number of plane anchors for providing UI feedback.
         sceneView.session.delegate = self
         sceneView.delegate = self
-       // sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
         // Prevent the screen from being dimmed after a while as users will likely
         // have long periods of interaction without touching the screen or buttons.
         UIApplication.shared.isIdleTimerDisabled = true
@@ -66,11 +59,6 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         sceneView.addGestureRecognizer(pinchRecognizer)
         sceneView.addGestureRecognizer(panRecognizer)
         sceneView.addGestureRecognizer(rotateRecognizer)
-        //adding a pinch recognizer (This works)
-//        let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: Selector(("pinchGesture:")))
-//        sceneView.addGestureRecognizer(pinchRecognizer)
-        // Show debug UI to view performance metrics (e.g. frames per second).
-        //sceneView.showsStatistics = true
     }
     
     @objc func rotateAction(sender:UIRotationGestureRecognizer){
@@ -82,20 +70,7 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         if sender.state == .changed{
             let translation = sender.rotation + originalRotation
             let pan_x = Float(translation)
-//            let pan_y = Float(-translation)
-//            let anglePan = sqrt(pow(pan_x,2)+pow(pan_y,2))*(Float)(Double.pi)/180.0
-//            var rotationVector = SCNVector4()
-//
-//            rotationVector.x = -pan_y
-//            rotationVector.y = 0
-//            rotationVector.z = pan_x
-//            rotationVector.w = anglePan
-            
-            //planeNode?.rotation = rotationVector
-            //planeNode?.eulerAngles.x = -.pi / 2
             planeNode?.eulerAngles.y = -pan_x
-            //planeNode?.eulerAngles.y =
-            //planeNode?.rotation = GLKMatrix4MakeZRotation(Float(newRotation))
         }
         if sender.state == .ended{
             lastRotation = sender.rotation
@@ -130,7 +105,6 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
             planeNode?.orientation = naturalOrientationVector!
             planeNode!.localTranslate(by: SCNVector3Make(deltaX, 0.0, deltaY))
             planeNode?.orientation = currentOrientation!
-            //after rotation coordinate system changes and local transalte doesn't work as predicted
             latestTranslatePos = position
             
         }
@@ -151,23 +125,13 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         
         // Create a SceneKit plane to visualize the plane anchor using its position and extent.
-        //let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
         planeNode = SCNNode()
         planeNode?.geometry = SCNPlane(width: 0.1, height: 0.1)
-        // planeNode.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.0)
         planeNode?.simdPosition = float3(planeAnchor.center.x, 0, planeAnchor.center.z)
-        // `SCNPlane` is vertically oriented in its local coordinate space, so
-        // rotate the plane to match the horizontal orientation of `ARPlaneAnchor`.
         planeNode?.eulerAngles.x = -.pi / 2
         
-        // Make the plane visualization semitransparent to clearly show real-world placement.
-        //let material = SCNMaterial()
-        //material.diffuse.contents = UIImage(named: "brick2.png")
-        //material.diffuse.contents = UIColor.white
-        // planeNode.opacity = 0.25
         planeNode?.geometry?.firstMaterial?.diffuse.contents = selectedImage
         naturalOrientationVector = SCNVector4Make((planeNode?.position.x)!, (planeNode?.position.y)!, (planeNode?.position.z)!, 0)
-        //planeNode.
         currentAngle = (planeNode?.eulerAngles.z)!
         
         // Add the plane visualization to the ARKit-managed node so that it tracks
@@ -176,29 +140,12 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
     }
     
     /// - Tag: UpdateARContent
-//    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-//        // Update content only for plane anchors and nodes matching the setup created in `renderer(_:didAdd:for:)`.
-//        guard let planeAnchor = anchor as?  ARPlaneAnchor,
-//            let planeNode = node.childNodes.first
-//            //let plane = planeNode.geometry as? SCNPlane
-//            else { return }
-//
-//        // Plane estimation may shift the center of a plane relative to its anchor's transform.
-//        //planeNode.simdPosition = float3(planeAnchor.center.x, 0, planeAnchor.center.z)
-//
-//        // Plane estimation may also extend planes, or remove one plane to merge its extent into another.
-////                plane.width = CGFloat(planeAnchor.extent.x)
-////                plane.height = CGFloat(planeAnchor.extent.z)
-//    }
-    
     // MARK: - ARSessionDelegate
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //assert(sender as? UICollectionViewCell != nil, "sender is not a collection view")
         
         if segue.identifier == "backToCollectionView" {
             let detailVC: TattooCollectionViewController = segue.destination as! TattooCollectionViewController
             detailVC.images = images
-            //detailVC.selectedLabel = cellLabels[indexPath.row]
         }
         
     }
@@ -270,10 +217,6 @@ class ARSceneViewController: UIViewController, ARSCNViewDelegate, ARSessionDeleg
         
         label.text = message
         sessionView.isHidden = message.isEmpty
-        //sessionInfoView.isHidden = message.isEmpty
-//        if !message.isEmpty {
-//            
-//        }
     }
     
     private func resetTracking() {

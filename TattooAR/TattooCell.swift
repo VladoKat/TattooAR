@@ -9,7 +9,5 @@
 import Foundation
 import UIKit
 class TattooCell : UICollectionViewCell{
-    @IBOutlet weak var label: UILabel!
-    
     @IBOutlet weak var imageView: UIImageView!
 }
