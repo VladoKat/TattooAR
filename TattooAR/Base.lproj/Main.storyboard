@@ -37,19 +37,24 @@
                                     <rect key="frame" x="0.0" y="0.0" width="138" height="117"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2b-b3-iZ2">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2b-b3-iZ2">
                                             <rect key="frame" x="48" y="34" width="58" height="50"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qoE-2i-YYd">
-                                            <rect key="frame" x="0.0" y="0.0" width="138" height="117"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qoE-2i-YYd">
+                                            <rect key="frame" x="15" y="0.0" width="108" height="117"/>
                                         </imageView>
                                     </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qoE-2i-YYd" secondAttribute="trailing" constant="15" id="5re-7e-1Qt"/>
+                                    <constraint firstItem="qoE-2i-YYd" firstAttribute="centerY" secondItem="Q2b-b3-iZ2" secondAttribute="centerY" id="VV8-OX-z8L"/>
+                                    <constraint firstItem="qoE-2i-YYd" firstAttribute="leading" secondItem="Wc5-MZ-fU2" secondAttribute="leading" constant="15" id="bWw-2p-NXR"/>
+                                    <constraint firstAttribute="bottom" secondItem="qoE-2i-YYd" secondAttribute="bottom" id="utz-bC-JfC"/>
+                                    <constraint firstItem="qoE-2i-YYd" firstAttribute="top" secondItem="Wc5-MZ-fU2" secondAttribute="top" id="yNJ-qI-SjL"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="qoE-2i-YYd" id="2hM-fO-GnM"/>
                                     <outlet property="label" destination="Q2b-b3-iZ2" id="fpR-0l-kqD"/>
@@ -69,7 +74,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="koZ-am-Txg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="-271"/>
+            <point key="canvasLocation" x="916" y="-271.21439280359823"/>
         </scene>
         <!--Scene View Controller-->
         <scene sceneID="c5c-sq-zHO">
